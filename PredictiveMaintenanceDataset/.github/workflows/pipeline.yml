@@ -54,7 +54,7 @@ jobs:
           MLOps_token: ${{ secrets.HF_TOKEN }} # Use the GitHub secret for the HF token
         run: |
           export MLOps_token=${{ secrets.HF_TOKEN }}
-          python PredictiveMaintenanceDataset/model_building/prep.py
+          python PredictiveMaintenanceDataset/model_building/app.py
 
   model-traning:
     needs: data-prep
@@ -82,7 +82,7 @@ jobs:
           MLOps_token: ${{ secrets.HF_TOKEN }} # Use the GitHub secret for the HF token
         run: |
           export MLOps_token=${{ secrets.HF_TOKEN }}
-          python PredictiveMaintenanceDataset/model_building/train.py
+          python PredictiveMaintenanceDataset/model_building/predict.py
 
   deploy-hosting:
     runs-on: ubuntu-latest
